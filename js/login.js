@@ -23,7 +23,8 @@ else
 
 if (datoUsuario ===true && datoContraseña === true) 
 {
+localStorage.setItem('User-Logged', JSON.stringify({usuario: inputUsuario.value}));
 window.location = "inicio.html";
 }
-});
+})
 });

@@ -133,4 +133,6 @@ document.addEventListener("DOMContentLoaded", function(e){
 
         showCategoriesList();
     });
+    miStorage = window.localStorage
+    localStorage.setItem( 'Usuario','Contraseña');
 });
