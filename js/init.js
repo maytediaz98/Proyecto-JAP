@@ -55,8 +55,7 @@ if (usuariologgeado){
 
   user.innerText = user.innerText + 'Usuario: '+ usuariologgeado.usuario;
   
-  infoUser.style = "display: inline-block";
-  user.style = "color: white"
+  user.style = "color: lightgreen";
 }
 
 });
