@@ -53,6 +53,6 @@ let user = document.getElementById("user");
 if (usuariologgeado){
   usuariologgeado = JSON.parse(usuariologgeado);
   user.innerText = user.innerText + 'Usuario: '+ usuariologgeado.usuario;
-  user.style = "color: #00FF00";
+  user.style = "color: #D929F5";
 }
 });
