@@ -1,7 +1,6 @@
-const ORDER_ASC_BY_NAME = "AZ";
-const ORDER_DESC_BY_NAME = "ZA";
-const ORDER_BY_PROD_PRECIO = "Precio";
-const ORDER_BY_PROD_COUNT = "Relevancia";
+const ORDER_ASC_BY_PRECIO = "ASC";
+const ORDER_DESC_BY_PRECIO = "DESC";
+const ORDER_BY_RELEVANCIA = "Relevancia";
 var currentProductsArray = [];
 var currentSortCriteria = undefined;
 var minCount = undefined;
@@ -9,20 +8,20 @@ var maxCount = undefined;
 
 function sortProducts(criteria, array){
     let result = [];
-    if (criteria === ORDER_ASC_BY_NAME)
+    if (criteria === ORDER_ASC_BY_PRECIO)
     {
         result = array.sort(function(a, b) {
             if ( a.cost < b.cost ){ return -1; }
             if ( a.cost > b.cost ){ return 1; }
             return 0;
         });
-    }else if (criteria === ORDER_DESC_BY_NAME){
+    }else if (criteria === ORDER_DESC_BY_PRECIO){
         result = array.sort(function(a, b) {
             if ( a.cost > b.cost ){ return -1; }
             if ( a.cost < b.cost ){ return 1; }
             return 0;
         });
-     } else if (criteria === ORDER_BY_PROD_COUNT){
+     } else if (criteria === ORDER_BY_RELEVANCIA){
             result = array.sort(function(a, b) {
                 let aCount = parseInt(a.soldCount);
                 let bCount = parseInt(b.soldCount);
@@ -83,20 +82,20 @@ function sortAndShowProducts(sortCriteria, productsArray){
 document.addEventListener("DOMContentLoaded", function(e){
     getJSONData(PRODUCTS_URL).then(function(resultObj){
         if (resultObj.status === "ok"){
-            sortAndShowProducts(ORDER_ASC_BY_NAME, resultObj.data);
+            sortAndShowProducts(ORDER_ASC_BY_PRECIO, resultObj.data);
         }
     });
 
     document.getElementById("sortAsc").addEventListener("click", function(){
-        sortAndShowProducts(ORDER_ASC_BY_NAME);
+        sortAndShowProducts(ORDER_ASC_BY_PRECIO);
     });
 
     document.getElementById("sortDesc").addEventListener("click", function(){
-        sortAndShowProducts(ORDER_DESC_BY_NAME);
+        sortAndShowProducts(ORDER_DESC_BY_PRECIO);
     });
 
     document.getElementById("sortByRelevancia").addEventListener("click", function(){
-        sortAndShowProducts(ORDER_BY_PROD_COUNT);
+        sortAndShowProducts(ORDER_BY_RELEVANCIA);
     });
 
     document.getElementById("clearRangeFilter").addEventListener("click", function(){
