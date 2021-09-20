@@ -50,7 +50,7 @@ let user = document.getElementById("user");
 
 if (usuariologgeado){
   usuariologgeado = JSON.parse(usuariologgeado);
-  user.innerText = user.innerText + 'Usuario: '+ usuariologgeado.usuario;
+  user.innerText = 'Usuario: '+ usuariologgeado.usuario;
   user.style = "color: #D929F5";
 }
 });

@@ -18,11 +18,12 @@
 <body>
   <nav class="site-header sticky-top py-1 bg-dark">
     <div class="container d-flex flex-column flex-md-row justify-content-between">
-      <a class="py-2 d-none d-md-inline-block" href="index.html">Inicio</a>
+      <a class="py-2 d-none d-md-inline-block" href="inicio.html">Inicio</a>
       <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
       <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
       <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
       <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
+      <a class="py-2 d-none d-md-inline-block" href="index.html">Salir</a>    
     </div>
   </nav>
   <main role="main">
@@ -41,18 +42,61 @@
           <p id="productDescription"></p>
         </dd>
 
-        <dt>precio</dt>
+        <dt>Precio</dt>
         <dd>
-          <p id = "currencyProduct"></p>
-          <p  id="productPrecio"></p>
+           <p id="productPrecio"></p>
         </dd>
-        <dt>Imágenes ilustrativas</dt>
-        <dd>
-          <div class="row text-center text-lg-left pt-2" id="productImagesGallery">
-          </div>
-        </dd>
+      <div class="row text-center text-lg-left pt-2" id="productImagesGallery">
+       </div>
+       <div class="container">
+        <div class="row">
+            <div class="col text-right">
+                <div class="btn-group btn-group-toggle mb-4" data-toggle="buttons">
+                    <label class="btn btn-light active" id="sortAscStars" >
+                        <input type="radio" name="options" autocomplete="off"> <i class="fas fa-sort-amount-down mr-1"></i>Puntuación
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-end">
+          <div class="col-md-6"></div>
+            <div class="col-md-6 col-sm-12 mb-1 container">
+              <div class="row container p-0 m-0">
+                <div class="col-3 p-0">
+                </div>
+              </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="list-group" id="com-list-container">
+            </div>
+        </div>
+    </div>
       </dl>
-      <a type="button" class="btn btn-light btn-lg btn-block" href="products.html">Ver productos</a>
+      <dl>
+      <div class="row">
+        <div class="list-group" id="cat-list-container"> 
+       <!-- AGREGAR NUEVO COMENTARIO-->
+          
+          <label for="inputUsuario">Usuario</label>
+          <input  type="text" id="inputUsuario" placeholder="Usuario"> <br>
+          <label  for="inputComentario">Comentario</label>
+          <textarea id = "inputComentario" placeholder="Ingresar comentario"></textarea></textarea><br>
+          <label for="inputUsuario">Puntaje:</label>
+          <select name="select">
+            <option value="1estrella">★✰✰✰✰</option>
+            <option value="2estrella">★★✰✰✰</option>
+            <option value="3estrella">★★★✰✰</option>
+            <option value="4estrella">★★★★✰</option>
+            <option value="5estrella"selected >★★★★★</option>    
+          </select><br><br>
+         <button id="enviarBtn" onclick=" ">Enviar comentario</button>
+        </div>
+      <dd>
+      
+      </dd>
+  </dl>
+   <a type="button" class="btn btn-light btn-lg btn-block" href="products.html">Ver productos</a>
     </div>
   </main>
   <footer class="text-muted">
@@ -76,6 +120,7 @@
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/init.js"></script>
   <script src="js/product-info.js"></script>
+
 </body>
 
 </html>

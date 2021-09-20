@@ -4,10 +4,10 @@ function showImagesGallery(array){
 
     
     let fotos = " ";
-   fotos += `<img class="img" src="img/${array}/1.jfif" width="90" height="150" alt=" ">
-   <img class="img" src="img/${array}/2.jfif width="90" height="150" alt=" "> 
-   <img class="img" src="img/${array}/3.jfif width="90" height="150" alt=" ">
-   img class="img" src="img/${array}/4.jfif width="90" height="150" alt=" ">`
+   fotos += `<img class="img" src="img/${images}/1.jfif" width="90" height="150" alt=" ">
+   <img class="img" src="img/${images}/2.jfif width="90" height="150" alt=" "> 
+   <img class="img" src="img/${images}/3.jfif width="90" height="150" alt=" ">
+   img class="img" src="img/${images}/4.jfif width="90" height="150" alt=" ">`
 
         document.getElementById("productImagesGallery").innerHTML = htmlContentToAppend;
     }

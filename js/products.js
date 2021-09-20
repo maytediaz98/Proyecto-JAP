@@ -62,7 +62,7 @@ function showProductsList(){
             `
         }
 
-        document.getElementById("cat-list-container").innerHTML = htmlContentToAppend;
+        document.getElementById("com-list-container").innerHTML = htmlContentToAppend;
     }
 }
 
