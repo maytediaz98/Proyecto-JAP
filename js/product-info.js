@@ -4,6 +4,11 @@ var currentComentsArray = [];
 var currentSortCriteria = undefined;
 var minCount = undefined;
 var maxCount = undefined;
+var producto = {};
+var productosArray = " ";
+var relatedProduct = [1,3];
+
+
 
 
 //TRAIGO LOS COMENTARIOS DEL JSON Y LOS CARGO EN VARIABLES 
@@ -31,6 +36,7 @@ document.addEventListener("DOMContentLoaded", function(e){
     getJSONData(PRODUCT_INFO_URL).then(function(resultObj){
         if (resultObj.status === "ok")
         {
+
             product = resultObj.data;
 
             let productNameHTML  = document.getElementById("productName");
@@ -38,19 +44,20 @@ document.addEventListener("DOMContentLoaded", function(e){
             let productPrecioHTML = document.getElementById("productPrecio");
             let productCountHTML = document.getElementById("soldCount");
             let productCurrencyHTML = document.getElementById("currencyProduct");
-
+            let productRelatedProductHTML = document.getElementById("relatedProduct");
         
             productNameHTML.innerHTML = product.name;
             productDescriptionHTML.innerHTML = product.description;
             productPrecioHTML.innerHTML = "USD " + product.cost;
             productCountHTML.innerHTML = product.soldCount;
             productCurrencyHTML.innerHTML = product.currencyProduct;
+            productRelatedProductHTML.innerHTML = product.relatedProduct;
         
             showImagesGallery(category.images);
         }
     });
 });
- 
+
 //ORDEN DE LOS COMENTARIOS ASC
 function sortComents(criteria, array){
     let result = [];
@@ -138,11 +145,12 @@ let datoComentario = true;
         if (datoUsuario ===true && datoComentario === true) 
         {
             alert ("Comentario enviado correctamente")
+            inputUsuario.value = "";
+            inputComentario.value = "";
+
         }
         })
         });
-
-
         
  document.addEventListener("DOMContentLoaded", function(e){
     getJSONData(PRODUCT_INFO_COMMENTS_URL).then(function(resultObj){
@@ -156,3 +164,27 @@ let datoComentario = true;
         sortAndShowComents(ORDER_ASC_BY_STARS);
     });
 });
+
+document.addEventListener("DOMContentLoaded", function (e){
+
+    getJSONData(PRODUCTS_URL).then(function(resultObj){
+        if (resultObj.status === "ok"){
+            productosArray = resultObj.data;
+            relatedProduct.forEach(function(i){
+            showRelatedProducts(productosArray,[i]);
+        }
+    )};
+    document.getElementById("relatedProduct").innerHTML = contenido;
+}
+    )});
+    function showRelatedProducts(productosArray,[i]){
+        let contenido = " ";
+            contenido += '<hr>' + 'Nombre:  ' + '<br>' + productosArray[relatedProduct[0]].name +'<br>'
+            contenido += 'Descripción:  ' + '<br>'+ productosArray[relatedProduct[0]].description + '<br>' 
+            contenido += 'Imágen: ' + '<br>'+ `<img src="`  + productosArray[relatedProduct[0]].imgSrc + `" class="img-thumbnail">`+'<br>'+ '<hr>'
+            contenido += 'Nombre:  ' + '<br>' + productosArray[relatedProduct[1]].name +'<br>'
+            contenido += 'Descripción:  ' + '<br>'+ productosArray[relatedProduct[1]].description + '<br>' 
+            contenido += 'Imágen: ' + '<br>'+ `<img src="`  + productosArray[relatedProduct[1]].imgSrc + `" class="img-thumbnail">`
+
+            document.getElementById("relatedProduct").innerHTML = contenido;
+    };

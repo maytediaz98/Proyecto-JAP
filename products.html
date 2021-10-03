@@ -21,8 +21,16 @@
         <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
         <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
         <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
-        <a class="py-2 d-none d-md-inline-block" href="my-profile.html" id="user" ></a>
-        <a class="py-2 d-none d-md-inline-block" href="index.html">Salir</a>    
+        <div class="dropdown">
+          <a class="btn btn-secondary dropdown-toggle"  href="#" role="button" id="user" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+   Usuario 
+          </a>
+        
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+            <a class="dropdown-item" href="my-profile.html">Datos de Usuario</a>
+            <a class="dropdown-item" href="index.html">Cerra Sesión de Usuario</a>
+          </div>
+        </div>     
       </div>
     </nav>
     <main role="main" class="pb-5">
@@ -83,7 +91,12 @@
         <p>Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>
       </div>
     </footer>
-    <div id="spinner-wrapper"><div class="lds-ring"><div></div><div></div><div></div><div></div></div></div>
+    <div id="spinner-wrapper"><div class="lds-ring">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div></div>
     <script src="js/jquery-3.4.1.min.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/init.js"></script>
