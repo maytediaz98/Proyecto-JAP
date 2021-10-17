@@ -179,7 +179,7 @@ document.addEventListener("DOMContentLoaded", function (e){
     )});
     function showRelatedProducts(productosArray,[i]){
         let contenido = " ";
-            contenido += '<hr>' + 'Nombre:  ' + '<br>' + productosArray[relatedProduct[0]].name +'<br>'
+            contenido += '<hr>' + 'Nombre:  ' + '<br>' +productosArray[relatedProduct[0]].name +'<br>'
             contenido += 'Descripción:  ' + '<br>'+ productosArray[relatedProduct[0]].description + '<br>' 
             contenido += 'Imágen: ' + '<br>'+ `<img src="`  + productosArray[relatedProduct[0]].imgSrc + `" class="img-thumbnail">`+'<br>'+ '<hr>'
             contenido += 'Nombre:  ' + '<br>' + productosArray[relatedProduct[1]].name +'<br>'
