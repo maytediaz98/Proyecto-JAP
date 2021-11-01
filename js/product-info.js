@@ -188,3 +188,19 @@ document.addEventListener("DOMContentLoaded", function (e){
 
             document.getElementById("relatedProduct").innerHTML = contenido;
     };
+    
+
+
+
+    
+document.addEventListener("DOMContentLoaded", function(e){
+    let usuariologgeado = localStorage.getItem('User-Logged');
+    
+    let user = document.getElementById("user3");
+    
+    if (usuariologgeado){
+      usuariologgeado = JSON.parse(usuariologgeado);
+      user.innerText = 'Usuario: '+ usuariologgeado.usuario;
+      user.style = "color: rgb(144, 187, 189)";
+    }
+    });

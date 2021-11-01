@@ -44,27 +44,91 @@ function showProductsList(){
         if (((minCount == undefined) || (minCount != undefined && parseInt(product.cost) >= minCount)) &&
             ((maxCount == undefined) || (maxCount != undefined && parseInt(product.cost) <= maxCount))){
 
-            htmlContentToAppend += `
-            <a href="product-info.html" class="list-group-item list-group-item-action">
-                <div class="row">
-                    <div class="col-3">
-                        <img src="` + product.imgSrc + `" alt="` + product.description + `" class="img-thumbnail">
-                    </div>
-                    <div class="col">
-                        <div class="d-flex w-100 justify-content-between">
-                            <h4 class="mb-1">`+ product.name +`</h4>
-                            <small class="text-muted">` +product.currency + " " + product.cost + `</small>
-                        </div>
-                        <p class="mb-1">` + product.description + `</p>
-                    </div>
-                </div>
-            </a>
-            `
+
+
+            htmlContentToAppend +=`
+
+
+  <div class="col-md-4 col-lg-5">
+    <div class="card mb-4 shadow-sm">
+    
+    <img src="` + product.imgSrc + `" 
+     <div class="card-body">
+        <p class="card-text">` + product.description + `</p>
+        <div class="d-flex justify-content-between align-items-center">
+          <div class="btn-group">
+          <a href="product-info.html"  <button   type="button" class="btn btn-sm btn-outline-secondary"> `+ product.name +`</button> </a> 
+           
+          </div>
+          <small class="text-muted">` +product.currency + " " + product.cost + ` </small>
+        </div>
+      </div>
+      </div>
+     </div>
+      `         
+         
         }
 
-        document.getElementById("com-list-container").innerHTML = htmlContentToAppend;
+       document.getElementById("idProducts").innerHTML = htmlContentToAppend;
     }
 }
+
+document.addEventListener("DOMContentLoaded", function(e){
+    getJSONData(PRODUCT_INFO_COMMENTS_URL).then(function(resultObj){
+        if (resultObj.status === "ok")
+        {
+            coments = resultObj.data;
+
+            let comentUserHTML  = document.getElementById("user");
+            let comentDescriptionHTML = document.getElementById("description");
+            let comentScoreHTML = document.getElementById("score");
+            let comentDateTimeHTML = document.getElementById("dateTime");
+
+            comentUserHTML.innerHTML = coments.user;
+            comentDescriptionHTML.innerHTML = coments.description;
+            comentScoreHTML.innerHTML = coments.score;
+            comentDateTimeHTML.innerHTML = coments.dateTime;
+        }
+    });
+});
+
+
+
+
+
+
+
+
+
+
+
+document.addEventListener("DOMContentLoaded", function(e){
+    let usuariologgeado = localStorage.getItem('User-Logged');
+    
+    let user = document.getElementById("user2");
+    
+    if (usuariologgeado){
+      usuariologgeado = JSON.parse(usuariologgeado);
+      user.innerText = 'Usuario: '+ usuariologgeado.usuario;
+      user.style = "color: rgb(144, 187, 189)";
+    }
+    });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 function sortAndShowProducts(sortCriteria, productsArray){
     currentSortCriteria = sortCriteria;
