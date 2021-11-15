@@ -54,3 +54,12 @@ if (usuariologgeado){
   user.style = "color: rgb(144, 187, 189)";
 }
 });
+
+document.addEventListener("DOMContentLoaded", function(e){
+  document.getElementById("cerrarSesion").addEventListener("click", function(){
+  localStorage.removeItem("Nombre");
+  localStorage.removeItem("Apellido");
+  localStorage.removeItem("edad");
+  localStorage.removeItem("email");
+  localStorage.removeItem("telefono");
+})});
